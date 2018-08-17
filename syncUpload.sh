@@ -3,7 +3,7 @@
 # Variables
 
 userName=$(cat /private/.sync/checkFile)
-remotePath=tbdadmin@server-04:/Volumes/TBD-OWC_8TB_02/Home/
+remotePath=<remote user>@<remote server>:/Volumes/<file path to sync folder>/
 syncFolderPath="/Users/./"$userName"/Desktop/Sync-Folder/"
 libraryFilePath="/Users/./"$userName"/Library/Preferences/"
 premiereFilePath="/Users/./"$userName"/Documents/Adobe/Premiere Pro/"
@@ -15,7 +15,7 @@ wacom="com.wacom."
 spaces="com.apple.spaces.plist"
 terminal="com.apple.Terminal.plist"
 
-if [ -f "/private/.sync/checkFile" ] && [ "userName" != "tbdadmin" ]
+if [ -f "/private/.sync/checkFile" ] && [ "userName" != "<admin user>" ]
 then
 	rsync -aRPt --exclude="*.mov" --exclude="*.mp4" --exclude="*.mxf" --exclude="*.m4v"  --exclude="*.mpg" --exclude="*.mpeg" --exclude="*.m2v" --max-size=1G --delete -e 'ssh -i /private/.sycn/id_rsa' "$syncFolderPath" "$premiereFilePath"*"$premiereUserPath" "$mediaComposerFilePath" "$remotePath"
 	rsync -aRPt -e 'ssh -i /private/.sync/id_rsa' "$libraryFilePath""$dock" "$libraryFilePath""$finder" "$libraryFilePath""$wacom"*".prefs" "$libraryFilePath""$spaces" "$libraryFilePath""$terminal" "$remotePath"
