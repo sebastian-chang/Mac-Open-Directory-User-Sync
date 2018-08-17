@@ -1,4 +1,4 @@
-# Mac-Open-Directory-User-Sync
+# Mac Open Directory User Sync
 Mimics Apple Open Directory home sync
 
 These are shell scripts meant to mimic the discontinued Home Sync from Apple's Open Directory services.  This will sync your users preferences, files and folders of your choosing to a dedicated server and back down to another machine.  Ideal for offices or schools that have end users move from station to station.
